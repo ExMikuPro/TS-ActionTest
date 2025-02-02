@@ -1,0 +1,58 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "@repo/web#dev": {
+      "env": ["API_ROOT", "TEXTURE_STORE_ROOT", "TEXTURE_STORE_CONFIG"]
+    },
+    "@repo/backend#dev": {
+      "env": [
+        "BASE_URL",
+        "DATABASE_URL",
+        "DATABASE_URL_MIGRATE",
+        "S3_ENDPOINT",
+        "S3_PUBLIC_ROOT",
+        "S3_BUCKET",
+        "S3_PREFIX",
+        "S3_ACCESS_KEY_ID",
+        "S3_SECRET_ACCESS_KEY",
+        "YGGDRASIL_SERVER_NAME",
+        "YGGDRASIL_LINKS_HOMEPAGE",
+        "YGGDRASIL_LINKS_REGISTER",
+        "YGGDRASIL_SKIN_DOMAINS",
+        "YGGDRASIL_PRIVATE_KEY",
+        "YGGDRASIL_PUBLIC_KEY",
+        "MAIL_SMTP_HOST",
+        "MAIL_SMTP_PORT",
+        "MAIL_SMTP_SECURE",
+        "MAIL_SMTP_USER",
+        "MAIL_SMTP_PASS",
+        "MAIL_SMTP_FROM"
+      ]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "migration:generate": {
+      "cache": false
+    },
+    "migration:drop": {
+      "cache": false
+    },
+    "migration:run": {
+      "cache": false
+    }
+  }
+}

@@ -2,11 +2,8 @@ name: Build with Bun and Node.js
 
 on:
     push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
+        tags:
+            - "v*"
 
 jobs:
     build:
@@ -40,3 +37,5 @@ jobs:
               with:
                   name: build-artifacts
                   path: ./dist
+
+

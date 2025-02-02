@@ -27,7 +27,7 @@ jobs:
               run: bun install
 
             - name: Build project
-              run: bun build
+              run: bun build ./
 
             - name: Run tests
               run: bun test

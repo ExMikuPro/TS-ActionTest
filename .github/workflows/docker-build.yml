@@ -18,10 +18,10 @@ jobs:
               with:
                   node-version: '16'  # 可根据需要指定版本
 
-            - name: Set up Bun
-              uses: oven-sh/bun-action@v1
-              with:
-                  bun-version: 'latest'
+            - name: Install Bun
+              run: |
+                  curl -fsSL https://bun.sh/install | bash
+                  echo "$HOME/.bun/bin" >> $GITHUB_PATH  # 将 Bun 添加到 PATH
 
             - name: Install dependencies
               run: bun install
@@ -33,9 +33,10 @@ jobs:
               run: bun test
 
             - name: Upload build artifacts
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
                   name: build-artifacts
                   path: ./dist
+
 
 

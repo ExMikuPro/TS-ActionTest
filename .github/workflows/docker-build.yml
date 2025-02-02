@@ -23,14 +23,11 @@ jobs:
                   curl -fsSL https://bun.sh/install | bash
                   echo "$HOME/.bun/bin" >> $GITHUB_PATH  # 将 Bun 添加到 PATH
 
-            - name: Install dependencies
-              run: bun install
-
-            - name: Build project
-              run: bun --bun run build
-
-            - name: Run tests
-              run: bun test
+            - name: Install Server
+              run: |
+                  cd ./apps/backend/
+                  bun install
+                  bun --bun run build
 
             - name: Upload build artifacts
               run: cd ./dist

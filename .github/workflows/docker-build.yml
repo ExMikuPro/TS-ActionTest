@@ -30,8 +30,8 @@ jobs:
                   bun --bun run build
 
             - name: Upload build artifacts
-              run: cd ./dist
-                   ls
+              run: |
+                ls dist
 
 
 

@@ -43,14 +43,15 @@ jobs:
             # 获取上一个标签并标记旧版本
             - name: Tag old version
               run: |
-                  previous_tag=$(git describe --tags --abbrev=0)
-                  echo "Previous tag: $previous_tag"
-
-                  # 为旧版本打标签
-                  docker tag ${{ secrets.DOCKER_USERNAME }}/hetu:latest ${{ secrets.DOCKER_USERNAME }}/hetu:$previous_tag
-
-                  # 推送到 Docker Hub
-                  docker push ${{ secrets.DOCKER_USERNAME }}/hetu:$previous_tag
+                  previous_tag=$(git describe --tags --abbrev=0 HEAD^)
+                    echo "Previous tag: $previous_tag"
+                    old_version=$(docker pull ${{ secrets.DOCKER_USERNAME }}/hetu:latest || echo "")
+                    if [ -n "$old_version" ]; then
+                      # Here you can decide how you want to compute the version, for now, using a simple v*.*
+                      version="$previous_tag"  # You can compute this dynamically or use commit hashes
+                      docker tag ${{ secrets.DOCKER_USERNAME }}/hetu:latest ${{ secrets.DOCKER_USERNAME }}/hetu:$version
+                      docker push ${{ secrets.DOCKER_USERNAME }}/hetu:$version
+                    fi
 
             - name: Push Docker image
               run: |

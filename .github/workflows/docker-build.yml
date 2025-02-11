@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker -t exmikupro/hetu:${{ github.sha }} .
+          docker --tag exmikupro/hetu:${{ github.sha }} .
 
       - name: Push Docker image
         run: |

@@ -35,8 +35,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t your-image-name:${{ github.sha }} .  # 根据你的 Dockerfile 编译镜像
+          docker -t exmikupro/hetu:${{ github.sha }} .
 
       - name: Push Docker image
         run: |
-          docker push your-image-name:${{ github.sha }}  # 推送镜像到 Docker Hub
+          docker push exmikupro/hetu:${{ github.sha }}

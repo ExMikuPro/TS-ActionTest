@@ -55,4 +55,4 @@ jobs:
 
             -   name: Push Docker image
                 run: |
-                    docker push exmikupro/hetu:${{ github.sha }}
+                    docker push exmikupro/hetu:latest

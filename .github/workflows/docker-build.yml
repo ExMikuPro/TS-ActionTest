@@ -39,7 +39,7 @@ jobs:
 
             -   name: Build Docker image
                 run: |
-                    docker build -t ${{ secrets.DOCKER_USERNAME }}/hetu:${{ github.sha }} .
+                    docker build -t ${{ secrets.DOCKER_USERNAME }}/hetu:latest .
 
             -   name: Tag old version
                 run: |

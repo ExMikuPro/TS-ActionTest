@@ -49,8 +49,8 @@ jobs:
                     if [ -n "$old_version" ]; then
                       # Here you can decide how you want to compute the version, for now, using a simple `v*.*`
                       version="$previous_tag"  # You can compute this dynamically or use commit hashes
-                      docker tag your-docker-username/hetu:latest ${{ secrets.DOCKER_USERNAME }}/hetu:$version
-                      docker push your-docker-username/hetu:$version
+                      docker tag ${{ secrets.DOCKER_USERNAME }}/hetu:latest ${{ secrets.DOCKER_USERNAME }}/hetu:$version
+                      docker push ${{ secrets.DOCKER_USERNAME }}/hetu:$version
                     fi
 
             -   name: Push Docker image

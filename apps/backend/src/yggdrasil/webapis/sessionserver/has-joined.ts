@@ -1,7 +1,7 @@
 import { Elysia, t } from 'elysia';
-import { yggProfileSchema } from '~backend/yggdrasil/yggdrasil.entities';
-import { YggdrasilRepository } from '~backend/yggdrasil/yggdrasil.repository';
-import { YggdrasilService } from '~backend/yggdrasil/yggdrasil.service';
+import { yggProfileSchema } from '../../yggdrasil.entities';
+import { YggdrasilRepository } from '../../yggdrasil.repository';
+import { YggdrasilService } from '../../yggdrasil.service';
 
 export const hasJoinedHandler = new Elysia().get(
 	'/session/minecraft/hasJoined',

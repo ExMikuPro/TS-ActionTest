@@ -1,10 +1,10 @@
 import { Elysia, t } from 'elysia';
-import { ProfilesRepository } from '~backend/profiles/profiles.repository';
-import { profileSchema } from '~backend/profiles/profile.entities';
-import { AppError } from '~backend/shared/middlewares/errors/app-error';
-import { authMiddleware } from '~backend/shared/auth/middleware';
-import { SessionScope } from '~backend/auth/auth.entities';
-import { createErrorResps } from '~backend/shared/middlewares/errors/docs';
+import { ProfilesRepository } from '../../profiles/profiles.repository';
+import { profileSchema } from '../../profiles/profile.entities';
+import { AppError } from '../../shared/middlewares/errors/app-error';
+import { authMiddleware } from '../../shared/auth/middleware';
+import { SessionScope } from '../../auth/auth.entities';
+import { createErrorResps } from '../../shared/middlewares/errors/docs';
 
 export const getUserProfilesHandler = new Elysia().use(authMiddleware(SessionScope.DEFAULT)).get(
 	'/:id/profiles',

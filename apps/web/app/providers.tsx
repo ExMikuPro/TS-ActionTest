@@ -3,7 +3,7 @@
 import { ThemeProvider } from 'next-themes';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { getQueryClient } from '~web/libs/api/query';
+import { getQueryClient } from '../libs/api/query';
 import { RenewSession } from './RenewSession';
 
 export function Providers({ children }: { children: React.ReactNode }) {

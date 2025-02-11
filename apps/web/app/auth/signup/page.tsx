@@ -1,5 +1,5 @@
 import { Button, Container, Flex, Heading } from '@radix-ui/themes';
-import { SignupForm } from '~web/app/auth/signup/SignupForm';
+import { SignupForm } from './SignupForm';
 import Link from 'next/link';
 
 export default function Signup() {

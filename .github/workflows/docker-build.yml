@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker --tag hetu:${{ github.sha }} .
+          docker -t hetu:${{ github.sha }} .
 
       - name: Push Docker image
         run: |

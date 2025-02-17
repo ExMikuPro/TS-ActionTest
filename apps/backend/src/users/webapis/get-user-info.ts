@@ -1,10 +1,10 @@
 import { Elysia, t } from 'elysia';
-import { SessionScope } from '../../auth/auth.entities';
-import { authMiddleware } from '../../shared/auth/middleware';
-import { AppError } from '../../shared/middlewares/errors/app-error';
-import { createErrorResps } from '../../shared/middlewares/errors/docs';
-import { userSchema } from '../user.entities';
-import { UsersRepository } from '../users.repository';
+import { SessionScope } from '~backend/auth/auth.entities';
+import { authMiddleware } from '~backend/shared/auth/middleware';
+import { AppError } from '~backend/shared/middlewares/errors/app-error';
+import { createErrorResps } from '~backend/shared/middlewares/errors/docs';
+import { userSchema } from '~backend/users/user.entities';
+import { UsersRepository } from '~backend/users/users.repository';
 
 export const getUserInfoHandler = new Elysia().use(authMiddleware(SessionScope.DEFAULT)).get(
 	'/:id',

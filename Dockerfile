@@ -11,7 +11,7 @@ WORKDIR /app
 COPY apps/backend .
 
 ENV NODE_ENV=production
-RUN bun install
+RUN bash -c 'bun install'
 
 # 安装项目依赖（包括 sharp）
 RUN bun build \
